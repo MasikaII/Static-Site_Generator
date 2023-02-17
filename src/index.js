@@ -41,11 +41,11 @@ const getOutputFilename = (filename, outPath) => {
 
 
 const outPath = path.join(path.resolve(), "dist")
-const outFile = getOutputFilename(filename, outPath)
+const outFilename = getOutputFilename(filename, outPath)
 const filename = path.join(path.resolve(), "src/pages/index.md")
 
 const output = readFile(filename, "utf8")
 const templatized = templatize(template, { date: output.data.date, title: output.data.title, content: output.content,})
 
 // saving file
-saveFile()
+saveFile(outFilename, templatized)
